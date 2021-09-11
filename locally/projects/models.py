@@ -18,3 +18,15 @@ class Project(models.Model):
     is_open = models.BooleanField()
     date_created = models.DateTimeField()
     owner = models.CharField(max_length=200)
+
+class Donation(models.Model):
+    type = models.CharField(max_length=1)
+    amount = models.IntegerField()
+    comment = models.CharField(max_length=200)
+    anonymous = models.BooleanField()
+    project = models.ForeignKey(
+        'Project',
+        on_delete=models.CASCADE,
+        related_name='donations'
+    )
+    donor = models.CharField(max_length=200)
