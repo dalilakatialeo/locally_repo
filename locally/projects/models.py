@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 
@@ -17,7 +18,11 @@ class Project(models.Model):
     image = models.URLField()
     is_open = models.BooleanField()
     date_created = models.DateTimeField()
-    owner = models.CharField(max_length=200)
+    owner = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='owner_projects'
+    )
 
 class Donation(models.Model):
     type = models.CharField(max_length=1)
@@ -29,4 +34,8 @@ class Donation(models.Model):
         on_delete=models.CASCADE,
         related_name='donations'
     )
-    donor = models.CharField(max_length=200)
+    donor = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='donor_donations'
+    )
