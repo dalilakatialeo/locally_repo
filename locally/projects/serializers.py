@@ -1,6 +1,6 @@
 from re import S
 from rest_framework import serializers
-from .models import Project, Donation
+from .models import SUB_CHOICES, Project, Donation
 
 class DonationSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
@@ -19,7 +19,7 @@ class ProjectSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     title = serializers.CharField(max_length=200)
     description = serializers.CharField(max_length=None)
-    location = serializers.CharField(max_length=None)
+    location = serializers.ChoiceField(choices=SUB_CHOICES)
     donation = serializers.CharField(max_length=None)
     # donation_type = serializers.ChoiceField(choices = Project.DONATION)
     image = serializers.URLField()
