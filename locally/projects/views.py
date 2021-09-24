@@ -90,7 +90,7 @@ class DonationList(APIView):
         if self.request.user.is_superuser:
             donations = Donation.objects.all()
         else:
-            donations = Donation.objects.filter(donor=self.request.user)
+            donations = Donation.objects.filter(donor=self.request.user.id)
 
         serializer = DonationSerializer(donations, many=True)
         return Response(serializer.data)
