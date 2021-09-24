@@ -33,7 +33,8 @@ SECRET_KEY = os.environ.get(
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 
-ALLOWED_HOSTS = ['rocky-stream-82364.herokuapp.com']
+ALLOWED_HOSTS = ['*']
+#allow everyone to access all domains - wouldnt do it in a real production app
 CORS_ALLOW_ALL_ORIGINS = True
 
 
@@ -41,7 +42,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 INSTALLED_APPS = [
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework.authtoken', #allows a bearer token to be generated that lives in the header
     'corsheaders',
     'projects.apps.ProjectsConfig',
     'django.contrib.admin',
@@ -132,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Australia/Brisbane'
 
 USE_I18N = True
 
@@ -145,7 +146,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
