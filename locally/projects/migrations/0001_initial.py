@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('donation', models.CharField(blank=True, choices=[('M', 'M'), ('T', 'T'), ('R', 'R'), ('S', 'S')], max_length=1)),
                 ('image', models.URLField()),
                 ('is_open', models.BooleanField()),
+                ('goal', models.IntegerField()),
                 ('date_created', models.DateTimeField()),
                 ('owner', models.CharField(max_length=200)),
             ],
