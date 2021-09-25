@@ -12,7 +12,7 @@ Deployed on [Heroku](https://locally-crowdfunding.herokuapp.com/projects).
 
 ---
 
-###Stack
+### Stack
 
 ##### Backend
 * Python
