@@ -21,7 +21,7 @@ class ProjectSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     description = serializers.CharField(max_length=None)
     location = serializers.ChoiceField(choices=SUB_CHOICES)
-    goal = serializers.ReadOnlyField()
+    goal = serializers.IntegerField()
     # donation_type = serializers.ChoiceField(choices = Project.DONATION)
     image = serializers.URLField()
     is_open = serializers.BooleanField()
