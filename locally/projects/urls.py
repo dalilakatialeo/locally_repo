@@ -7,7 +7,7 @@ urlpatterns = [
     path('projects/', views.ProjectList.as_view()),
     path('projects/<int:pk>/', views.ProjectDetail.as_view()),
     path('donations/', views.DonationList.as_view()),
-    path('donations/<int:pk>', views.DonationDetail.as_view()),
+    path('donations/<int:pk>/', views.DonationDetail.as_view()),
     # path('locations/', views.get_all_locations())
 
     ]
