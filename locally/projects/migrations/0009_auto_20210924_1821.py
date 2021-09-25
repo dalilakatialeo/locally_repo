@@ -18,10 +18,5 @@ class Migration(migrations.Migration):
             model_name='project',
             name='donation',
         ),
-        migrations.AddField(
-            model_name='project',
-            name='goal',
-            field=models.IntegerField(default=0),
-            preserve_default=False,
-        ),
+
     ]

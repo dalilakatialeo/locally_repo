@@ -30,7 +30,7 @@ class Project(models.Model):
     donation = models.IntegerField(default= 0)
     image = models.URLField()
     is_open = models.BooleanField()
-    goal = models.IntegerField()
+    # goal = models.IntegerField()
     date_created = models.DateTimeField()
     owner = models.ForeignKey(
         get_user_model(),
@@ -46,14 +46,14 @@ class Project(models.Model):
             category_names.append(category.category)
         return category_names
 
-    @property
-    def status(self):
-        all_related_donations = Donation.objects.filter(project= self.id)
-        total_donations = 0
-        for donation in all_related_donations:
-            total_donations += donation.amount
-        total_amount = sum(donation.amount for donation in all_related_donations)
-        return (Project.goal - total_amount)
+    # @property
+    # def status(self):
+    #     all_related_donations = Donation.objects.filter(project= self.id)
+    #     total_donations = 0
+    #     for donation in all_related_donations:
+    #         total_donations += donation.amount
+    #     total_amount = sum(donation.amount for donation in all_related_donations)
+    #     return (Project.goal - total_amount)
 
 class Category(models.Model):
     name = models.CharField(max_length=200, default='')
