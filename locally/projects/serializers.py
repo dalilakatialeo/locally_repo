@@ -56,5 +56,6 @@ class DonationDetailSerializer(DonationSerializer):
     def update(self, instance, validated_data):
         instance.amount = validated_data.get('amount',instance.amount)
         instance.comment = validated_data.get('comment',instance.comment)
+        instance.anonymous = validated_data.get ('anonymous', instance.anonymous)
         instance.save()
         return instance

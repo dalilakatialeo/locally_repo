@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='donation',
             name='anonymous',
-            field=models.BooleanField(default=1),
+            field=models.BooleanField(default="False"),
             preserve_default=False,
         ),
         migrations.AlterField(
