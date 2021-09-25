@@ -27,10 +27,10 @@ class Project(models.Model):
     #     # choices = DONATION_CHOICES,
     #     default = 'not_set',
     # )
-    donation = models.IntegerField(default= 0)
+    goal= models.IntegerField(default= 0)
     image = models.URLField()
     is_open = models.BooleanField()
-    goal = models.IntegerField(default=0)
+    # goal = models.IntegerField(default=0)
     date_created = models.DateTimeField()
     owner = models.ForeignKey(
         get_user_model(),
@@ -52,8 +52,7 @@ class Project(models.Model):
     #     total_donations = 0
     #     for donation in all_related_donations:
     #         total_donations += donation.amount
-    #     total_amount = sum(donation.amount for donation in all_related_donations)
-    #     return (Project.goal - total_amount)
+    #     return (Project.goal - total_donations)
 
 class Category(models.Model):
     name = models.CharField(max_length=200, default='')
