@@ -84,16 +84,13 @@ class ProjectDetail(APIView):
 
 #for /donations/        
 class DonationList(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 #GET donation
     def get(self, request):
-        if self.request.user.is_superuser:
             donations = Donation.objects.all()
-        else:
-            donations = Donation.objects.filter(donor=self.request.user.id)
-
-        serializer = DonationSerializer(donations, many=True)
-        return Response(serializer.data)
+            serializer = DonationSerializer(donations, many=True)
+            return Response(serializer.data)
 
 #POST donation
     def post(self, request):
@@ -133,9 +130,10 @@ class DonationDetail(APIView):
 # update /donations/<pk>  
     def put(self, request, pk):
         donation = self.get_object(pk)
+        data = request.data
         serializer = DonationDetailSerializer(
             instance=donation,
-            data = request.data,
+            data = data,
             partial=True
         )
         if serializer.is_valid():

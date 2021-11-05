@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.db.models import Sum
 
 # Create your models here.
 
@@ -37,6 +38,10 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         related_name='owner_projects'
     )
+
+    def donation_total(self):
+        sum = Donation.objects.filter(project=self.id).aggregate(Sum('amount')) ['amount__sum']
+        return sum
 
     @property
     def show_all_categorys(self):
