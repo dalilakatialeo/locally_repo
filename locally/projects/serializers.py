@@ -24,7 +24,9 @@ class ProjectSerializer(serializers.Serializer):
     is_open = serializers.BooleanField()
     date_created = serializers.DateTimeField()
     owner = serializers.ReadOnlyField(source='owner.id')
-    total = serializers.ReadOnlyField(source='donation_total')
+    total_donated = serializers.ReadOnlyField(source='donation_total')
+
+    
 
 #this will be called to POST /projects to create a new project
     def create(self, validated_data):

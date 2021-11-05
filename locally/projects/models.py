@@ -42,7 +42,7 @@ class Project(models.Model):
     def donation_total(self):
         sum = Donation.objects.filter(project=self.id).aggregate(Sum('amount')) ['amount__sum']
         return sum
-
+        
     @property
     def show_all_categorys(self):
         all_categories = self.category_set.all()
