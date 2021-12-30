@@ -30,7 +30,7 @@ class CustomUserList(APIView):
 
 # /users/<pk>
 class CustomUserDetail(APIView):
-   
+    
     # helper method for getting a user and raising a 404 if that user does not exist
     def get_object(self, pk):
         # try getting the user with the specified pk
